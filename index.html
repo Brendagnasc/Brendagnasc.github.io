@@ -1,31 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Sobre mim</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brenda Gabrielle Alves Nascimento</title>
+  <meta name="description" content="Estudante de Ciência da Computação na UFOP. Sistemas distribuídos, C++ e robótica.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1 class="titulo">Sobre mim</h1>
 
-        <img class="foto" src="https://github.com/Brendagnasc.png" alt="Foto de perfil">
+<body class="bg-zinc-900 text-zinc-300 antialiased">
 
-        <p id="nome">Meu nome é Brenda Gabrielle Alves Nascimento</p>
+  <main class="max-w-3xl mx-auto px-6 py-16">
 
-        <h2 class="subtitulo">Meus interesses</h2>
-        <ul class="lista">
-            <li>Robótica</li>
-            <li>Programação</li>
-            <li>Algoritmos e estruturas de dados</li>
-            <li>Arte</li>
-        </ul>
+    <header class="flex flex-col sm:flex-row sm:items-center gap-6 pb-10 border-b border-zinc-800">
+      <img
+        src="https://github.com/Brendagnasc.png"
+        alt="Foto de Brenda Gabrielle Alves Nascimento"
+        class="w-28 h-28 rounded-full object-cover ring-2 ring-zinc-700 shrink-0">
 
-        <h2 class="subtitulo">Onde me encontrar</h2>
-        <ul class="lista">
-            <li><a href="https://github.com/Brendagnasc">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/brenda-gabrielle-85242a416">LinkedIn</a></li>
-        </ul>
-    </div>
+      <div>
+        <h1 class="text-3xl font-semibold text-zinc-50 tracking-tight">
+          Brenda Gabrielle Alves Nascimento
+        </h1>
+        <p class="mt-1 text-sky-400 font-medium">
+          Estudante de Ciência da Computação &middot; UFOP
+        </p>
+        <p class="mt-1 text-sm text-zinc-500">
+          Ouro Preto, Minas Gerais
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-3 text-sm">
+          <a href="https://github.com/Brendagnasc"
+             class="px-3 py-1.5 rounded-md bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/brenda-gabrielle-85242a416"
+             class="px-3 py-1.5 rounded-md bg-zinc-800 text-zinc-200 hover:bg-zinc-700 transition-colors">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="py-10 border-b border-zinc-800">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-4">
+        Sobre
+      </h2>
+      <p class="leading-relaxed">
+        Estudante de Ciência da Computação na Universidade Federal de Ouro Preto, com
+        interesse em sistemas distribuídos, algoritmos e robótica. Tenho experiência
+        prática em C++ e Python aplicados a projetos de alto desempenho, incluindo um
+        sistema completo de futebol de robôs para a RoboCup. Busco oportunidade de
+        estágio em desenvolvimento de software.
+      </p>
+    </section>
+
+    <section class="py-10 border-b border-zinc-800">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">
+        Formação
+      </h2>
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+        <div>
+          <h3 class="text-zinc-50 font-medium">Bacharelado em Ciência da Computação</h3>
+          <p class="text-sm text-zinc-400">Universidade Federal de Ouro Preto (UFOP)</p>
+        </div>
+        <p class="text-sm text-zinc-500 shrink-0">Conclusão prevista em 2028</p>
+      </div>
+    </section>
+
+    <section class="py-10 border-b border-zinc-800">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">
+        Projetos
+      </h2>
+
+      <div class="space-y-8">
+
+        <article>
+          <h3 class="text-zinc-50 font-medium">Sistema de futebol de robôs &mdash; RoboCup SSL</h3>
+          <p class="mt-2 text-sm leading-relaxed">
+            Sistema 6v6 completo para a Small Size League, com módulos desacoplados de visão,
+            estratégia e decisão. Utiliza Memcached como barramento de dados em tempo real e
+            eleição de líder atômica, com failover demonstrado em aproximadamente 3 segundos
+            sobre Docker Swarm.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">C++17</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">CMake</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Memcached</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Docker Swarm</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Protobuf</span>
+          </div>
+        </article>
+
+        <article>
+          <h3 class="text-zinc-50 font-medium">Cluster Sync &mdash; replicação e tolerância a falhas</h3>
+          <p class="mt-2 text-sm leading-relaxed">
+            Sistema distribuído com exclusão mútua por Ricart-Agrawala e replicação com
+            primário dinâmico, implementado sobre sockets POSIX e threads, sem middleware.
+            Detecção de falhas por timeout e teste de consistência entre réplicas.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">C++17</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Node.js</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Sockets POSIX</span>
+          </div>
+        </article>
+
+        <article>
+          <h3 class="text-zinc-50 font-medium">Sistema de controle de despesas</h3>
+          <p class="mt-2 text-sm leading-relaxed">
+            Aplicação full-stack para controle de despesas residenciais, com regras de negócio
+            por faixa etária e exclusão em cascata. Desenvolvida como desafio técnico.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">C# / .NET 8</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">EF Core</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">React</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">TypeScript</span>
+          </div>
+        </article>
+
+        <article>
+          <h3 class="text-zinc-50 font-medium">
+            <a href="https://github.com/Brendagnasc/paa-mochila"
+               class="hover:text-sky-400 transition-colors">
+              Análise empírica do problema da mochila
+            </a>
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed">
+            Comparação de três algoritmos exatos para o problema 0-1 com duas restrições:
+            programação dinâmica, backtracking e branch-and-bound. Pipeline experimental em
+            Python com testes estatísticos de Friedman e Wilcoxon.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">C++17</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Python</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400">Makefile</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">
+        Competências técnicas
+      </h2>
+
+      <dl class="space-y-4 text-sm">
+        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+          <dt class="text-zinc-500 sm:w-40 shrink-0">Linguagens</dt>
+          <dd class="text-zinc-300">C, C++17, Python, JavaScript, TypeScript, C#, SQL</dd>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+          <dt class="text-zinc-500 sm:w-40 shrink-0">Tecnologias</dt>
+          <dd class="text-zinc-300">React, .NET 8, Node.js, PostgreSQL, Memcached, Docker</dd>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+          <dt class="text-zinc-500 sm:w-40 shrink-0">Ferramentas</dt>
+          <dd class="text-zinc-300">Git, CMake, Make, Linux, WSL, LaTeX</dd>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-1 sm:gap-4">
+          <dt class="text-zinc-500 sm:w-40 shrink-0">Áreas</dt>
+          <dd class="text-zinc-300">Sistemas distribuídos, algoritmos, banco de dados, robótica</dd>
+        </div>
+      </dl>
+    </section>
+
+    <footer class="pt-8 border-t border-zinc-800 text-sm text-zinc-600">
+      Página construída com HTML e Tailwind CSS, hospedada no GitHub Pages.
+    </footer>
+
+  </main>
+
 </body>
 </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogos · Brenda Gabrielle</title>
+  <meta name="description" content="Jogos feitos por Brenda Gabrielle Alves Nascimento, jogáveis direto no navegador.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* mesmas cores da página principal (paleta zinc + sky do Tailwind) */
+    :root {
+      --fundo: #18181b;      /* zinc-900 */
+      --cartao: #27272a;     /* zinc-800 */
+      --cartao-hover: #3f3f46;
+      --borda: #3f3f46;      /* zinc-700 */
+      --texto: #d4d4d8;      /* zinc-300 */
+      --titulo: #fafafa;     /* zinc-50 */
+      --suave: #71717a;      /* zinc-500 */
+      --destaque: #38bdf8;   /* sky-400 */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 960px; margin: 0 auto; padding: 48px 24px 64px; }
+    a { color: inherit; }
+
+    .voltar { font-size: 14px; color: var(--suave); text-decoration: none; }
+    .voltar:hover { color: var(--destaque); }
+
+    header { padding: 24px 0 32px; border-bottom: 1px solid var(--cartao); margin-bottom: 32px; }
+    h1 { margin: 0; font-size: 30px; font-weight: 600; color: var(--titulo); letter-spacing: -0.02em; }
+    header p { margin: 8px 0 0; max-width: 60ch; line-height: 1.6; }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    .jogo {
+      display: flex;
+      flex-direction: column;
+      background: var(--cartao);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .jogo:hover { border-color: var(--borda); transform: translateY(-2px); }
+
+    .capa {
+      height: 140px;
+      display: grid;
+      place-items: center;
+      font-size: 56px;
+      background: var(--cor-capa, #1f2937);
+    }
+    .corpo { display: flex; flex-direction: column; gap: 10px; padding: 18px; flex: 1; }
+    .corpo h2 { margin: 0; font-size: 17px; font-weight: 600; color: var(--titulo); }
+    .corpo p { margin: 0; font-size: 14px; line-height: 1.55; flex: 1; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags span { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--fundo); color: #a1a1aa; }
+
+    .acoes { display: flex; gap: 8px; margin-top: 4px; }
+    .acoes a {
+      flex: 1;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .jogar { background: var(--destaque); color: #0c1a24; }
+    .jogar:hover { background: #7dd3fc; }
+    .codigo { background: var(--fundo); color: var(--texto); }
+    .codigo:hover { background: var(--cartao-hover); }
+
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--cartao); font-size: 14px; color: #52525b; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="voltar" href="../">← Brenda Gabrielle</a>
+
+    <header>
+      <h1>Jogos</h1>
+      <p>Projetos de jogos que fiz durante o curso, todos jogáveis direto no navegador.
+         Os jogos em C e C++ rodam o código original, compilado para WebAssembly.</p>
+    </header>
+
+    <div class="grade" id="grade"></div>
+
+    <footer>Cada jogo tem o próprio repositório no GitHub e é publicado pelo GitHub Pages.</footer>
+  </main>
+
+  <script>
+    // Para adicionar um jogo, é só acrescentar um item nesta lista.
+    const JOGOS = [
+      {
+        nome: "Puzzle Cam",
+        descricao: "Tira uma foto pela webcam, corta em peças e você monta o quebra-cabeça no ar, com gesto de pinça.",
+        capa: "📸",
+        cor: "linear-gradient(135deg, #1e3a2f, #14532d)",
+        tags: ["JavaScript", "MediaPipe Hands", "Canvas"],
+        demo: "https://brendagnasc.github.io/Puzzle_Cam/",
+        codigo: "https://github.com/Brendagnasc/Puzzle_Cam"
+      },
+      {
+        nome: "Quebra-Cabeças",
+        descricao: "Quebra-cabeça deslizante de 3×3 até 10×10, com três dificuldades e partidas salvas em arquivo.",
+        capa: "🧩",
+        cor: "linear-gradient(135deg, #1a2e05, #0f3d3a)",
+        tags: ["C", "GTK3", "WebAssembly"],
+        demo: "https://brendagnasc.github.io/quebra-cabecas/",
+        codigo: "https://github.com/Brendagnasc/quebra-cabecas"
+      },
+      {
+        nome: "2048",
+        descricao: "O clássico 2048 com animações, desfazer jogada, histórico de partidas e recorde salvo.",
+        capa: "🔢",
+        cor: "linear-gradient(135deg, #3b2506, #4a1d0a)",
+        tags: ["C++17", "SDL2", "WebAssembly"],
+        demo: "https://brendagnasc.github.io/jogo-2048/",
+        codigo: "https://github.com/Brendagnasc/jogo-2048"
+      }
+    ];
+
+    const grade = document.getElementById("grade");
+    for (const jogo of JOGOS) {
+      const cartao = document.createElement("article");
+      cartao.className = "jogo";
+
+      const capa = document.createElement("div");
+      capa.className = "capa";
+      capa.style.setProperty("--cor-capa", jogo.cor);
+      capa.textContent = jogo.capa;
+      capa.setAttribute("aria-hidden", "true");
+
+      const corpo = document.createElement("div");
+      corpo.className = "corpo";
+
+      const titulo = document.createElement("h2");
+      titulo.textContent = jogo.nome;
+
+      const descricao = document.createElement("p");
+      descricao.textContent = jogo.descricao;
+
+      const tags = document.createElement("div");
+      tags.className = "tags";
+      for (const t of jogo.tags) {
+        const tag = document.createElement("span");
+        tag.textContent = t;
+        tags.appendChild(tag);
+      }
+
+      const acoes = document.createElement("div");
+      acoes.className = "acoes";
+      acoes.innerHTML =
+        `<a class="jogar" href="${jogo.demo}">Jogar</a>` +
+        `<a class="codigo" href="${jogo.codigo}">Código</a>`;
+
+      corpo.append(titulo, descricao, tags, acoes);
+      cartao.append(capa, corpo);
+      grade.appendChild(cartao);
+    }
+  </script>
+</body>
+</html>
